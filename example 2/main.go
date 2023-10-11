@@ -22,6 +22,7 @@ func main() {
 	http.Handle("/", router)
 	fmt.Println("Server is running on :8080")
 	http.ListenAndServe(":8080", nil)
+	///> available base link : http://localhost:8080
 }
 
 // HelloWorld handles the root route
