@@ -13,8 +13,9 @@ func main() {
 	router := mux.NewRouter()
 
 	//http.HandleFunc("/api/data", CommentList)
-	router.HandleFunc("/api/data", CommentList).Methods("GET")
+
 	// Define API routes
+	router.HandleFunc("/api/data", CommentList).Methods("GET")
 	router.HandleFunc("/", HelloWorld).Methods("GET")
 	router.HandleFunc("/greet/{name}", Greet).Methods("GET")
 
@@ -68,7 +69,6 @@ func CommentList(w http.ResponseWriter, r *http.Request) {
 			"body":   "quia molestiae reprehenderit quasi aspernatur\naut expedita occaecati aliquam eveniet laudantium\nomnis quibusdam delectus saepe quia accusamus maiores nam est\ncum et ducimus et vero voluptates excepturi deleniti ratione",
 		},
 	}
-
 	w.Header().Set("Content-Type", "application/json")
 	err := json.NewEncoder(w).Encode(data)
 	if err != nil {
